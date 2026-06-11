@@ -11,3 +11,23 @@ server:
 configs:
   params:
     server.insecure: "true"
+
+  cm:
+    create: true
+    kustomize.buildOptions: "--enable-helm"
+
+  httproute:
+    enabled: true
+
+    parentRefs:
+      - name: app-alb-gateway
+        namespace: default
+        sectionName: http   # ✅ MUST be http
+
+    hostnames: []          # ✅ NO DOMAIN
+
+    rules:
+      - matches:
+          - path:
+              type: PathPrefix
+              value: /
