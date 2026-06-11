@@ -1,0 +1,13 @@
+server:
+  service:
+    type: ClusterIP
+
+  ingress:
+    enabled: false
+
+  extraArgs:
+    - --insecure
+
+configs:
+  params:
+    server.insecure: "true"
