@@ -17,4 +17,3 @@ data "aws_ami" "amazon_linux" {
 
   owners = ["137112412989"] # Amazon
 }
-``
